@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Django Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <h1><a href="#">Django BLog</a></h1>
+{% extends 'blog/base.html' %}
+
+{% block content %}
     {% for post in posts %}
-        <div>
-            <p>Published:{{ post.published_date }}</p>
-            <a href="{% url 'post_detail' pk=post.pk %}"><h2>{{ post.title }}</h2></a>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
+    <div class="on-content">
+        <a href="{% url 'post_detail' pk=post.pk %}">
+        <h2 class="post-title">{{ post.title }}</h2></a>
+        <p>{{ post.text|linebreaksbr }}</p>
+        <p class="content-published-date">Published:{{ post.published_date }}</p>
+    </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

@@ -5,7 +5,7 @@
     <div class="on-content">
         <a href="{% url 'post_detail' pk=post.pk %}">
         <h2 class="post-title">{{ post.title }}</h2></a>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <p class="post-text">{{ post.text|linebreaksbr }}</p>
         <p class="content-published-date">Published:{{ post.published_date }}</p>
     </div>
     {% endfor %}

@@ -23,6 +23,8 @@
         <br>
         <p>{{ commentes.text }}</p> 
         {{ commentes.created_date }}
+        <p><a href="{% url 'delete' pk=commentes.pk %}" class="btn btn-danger">remove</a></p>
+        <h1>-----</h1>
     {% empty %}
         <p>No comments yet...</p>
     {% endfor %}

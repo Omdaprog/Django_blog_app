@@ -15,4 +15,6 @@ urlpatterns = [
 
     path('post/publish<int:pk>/',views.post_publish, name='post_publish'),
 
+    path('post<int:pk>/comments/', views.add_comment_to_post, name="comment"),
+
 ]

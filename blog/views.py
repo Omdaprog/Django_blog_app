@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Post
-from blog.forms import PostForm
+from .models import Post, Comment
+from blog.forms import PostForm, CommentForm
 # Create your views here.
 
 
@@ -23,7 +23,6 @@ def post_new(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.auther = request.user
             post.save()
             return redirect('post_detail', pk=post.pk)
     else: 
@@ -38,7 +37,6 @@ def post_Edit(request ,pk):
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            post.auther = request.user
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -57,6 +55,23 @@ def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publish()
     return redirect('post_list')
+
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=post)
+        if form.is_valid(): 
+            comment = form.save(commit=False)                # commit=False it's mean that dont save the form in database
+            comment.auther = request.user 
+            comment.post = post
+            comment.save()
+            return redirect('post_detail', pk=post.pk)
+    else: 
+        form = CommentForm()
+    return render(request, 'blog/comment.html', {'form': form})
+
+
 
 
 

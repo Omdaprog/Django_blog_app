@@ -14,4 +14,17 @@
         <h5 class="content-published-date">{{ post.published_date }}</h5>
     </div>
     
+    <hr>
+    <a href="{% url 'comment' pk=post.pk %}" class="btn btn-primary"> Add comment</a>
+    <br>
+    <br>
+    {% for commentes in post.comments.all %}
+        <strong>{{ commentes.author }}</strong>
+        <br>
+        <p>{{ commentes.text }}</p> 
+        {{ commentes.created_date }}
+    {% empty %}
+        <p>No comments yet...</p>
+    {% endfor %}
+
 {% endblock %}

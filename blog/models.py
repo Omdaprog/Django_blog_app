@@ -15,6 +15,10 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
+    def approved_comments(self):
+        return self.comments.filter(approved = True)
+
+
     # create string representation
     
     def __str__(self):
@@ -26,6 +30,11 @@ class Comment(models.Model):
     author = models.CharField(max_length=100)
     created_date = models.DateTimeField(default=timezone.now)
     text = models.TextField()
+    approved = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved = True
+        self.save()
 
     def __str__(self):
         return self.text

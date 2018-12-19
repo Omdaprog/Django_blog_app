@@ -13,8 +13,6 @@
         <p>{{ post.text|linebreaksbr }}</p>
         <h5 class="content-published-date">{{ post.created_date }}</h5>
     </div>
-    <p>
-        <a href="{% url 'post_publish' pk=post.pk %}"><i class="fas fa-upload "></i></a>
-    </p>
+    <a href="{% url 'post_publish' pk=post.pk %}"><i class="fas fa-upload fa-2x"></i></a>
     {% endfor %}
 {% endblock %}

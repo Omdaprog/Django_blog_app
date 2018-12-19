@@ -78,6 +78,15 @@ def remove_comment(request, pk):
     return redirect('post_detail', pk=comment.post.pk)
 
 @login_required
+def remove_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('/')
+
+
+
+
+@login_required
 def comment_approve(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.approve()

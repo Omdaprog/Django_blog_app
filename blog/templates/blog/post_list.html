@@ -1,4 +1,7 @@
 {% extends 'blog/base.html' %}
+{% load markdownify %} 
+
+
 
 {% block title %}
     My Blog
@@ -7,9 +10,10 @@
 {% block content %}
     {% for post in posts %}
     <div class="on-content">
-        <a href="{% url 'post_detail' pk=post.pk %}">
+        <a  href="{% url 'post_detail' pk=post.pk %}" class="link">
         <h2 class="post-title">{{ post.title }}</h2></a>
-        <p class="post-text">{{ post.text|truncatechars:200|linebreaksbr }}</p>
+        <p class="post-text">{{ post.text | truncatechars:200 | linebreaksbr }}</p>
+         <!-- add this [|markdown | safe |] for this line for markdownify work -->
         <p class="content-published-date">Published:{{ post.published_date }}</p>
         <a href="{% url 'post_detail' pk=post.pk %}"> Comments:{{ post.approved_comments.count }} </a>{% if user.is_authenticated %}<a href="{% url 'post_detail' pk=post.pk %}">|| total Comments:{{ post.comments.count }}</a>{% endif %}
     </div>

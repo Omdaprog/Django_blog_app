@@ -25,6 +25,8 @@ SECRET_KEY = 'rf!!swh%8s@jk@cxry$&0nidx=wh4e+ad_mli8n9ij08uu=#_p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = 'post_list'
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [

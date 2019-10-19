@@ -1,18 +1,198 @@
-{% extends 'blog/base.html' %}
+{% load markdownify %}
+{% load staticfiles %}
 
 
-{% block title %}
-    Draft list 
-{% endblock %}
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CodePython</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block content %}
-    {% for post in posts %}
-    <div class="on-content">
-        <a href="{% url 'post_detail' pk=post.pk %}" ><h1 class="post-title">{{ post.title }}</h1></a>
-        <p>{{ post.text|linebreaksbr }}</p>
-        <h5 class="content-published-date">{{ post.created_date }}</h5>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+
+    <!-- fontawsome.com-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- bootstrap introduction-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- fontawsome CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'DraftPage/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog2/zenburn.css' %}">
+
+    <!-- annimation on scrolling -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">Travelblog</a>
+        
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-lg-auto">
+
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'post_new' %}">Create Post <span class="sr-only">(current)</span></a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url 'post_draft_list' %}">Draft Post</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout_view' %}">Logout</a>
+                            </li>
+                        {% else %}
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            </li>
+        
+                        {% endif %} 
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="jumbotron jumbotron-fluid height100p banner" id="home">
+        <div class="container h100">
+           <div class="contentBox h100">
+               <h1 data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">Undiscoverd Beauty</h1>
+               <p data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" >
+                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus voluptas assumenda sconsequatur cumque nemo iste deleniti doloremque, nulla numquam laudantium, rem soluta. Cumque sunt saepe distinctio, aut maxime sint laudantium.
+                </p>
+           </div> 
+        </div>
     </div>
-    <a href="{% url 'post_publish' pk=post.pk %}"><i class="fas fa-upload fa-2x"></i></a>
-    {% endfor %}
-{% endblock %}
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="row">
+                {% for post in posts %}
+                    <div class="col1">
+                        <div class="blogpost" data-aos="fade-up-right" data-aos-delay="500" data-aos-duration="1000">
+                            <div class="imgBx">
+                                {% if post.image %}
+                                <img src="{{ post.image.url }}" class="img-fluid">
+                                {% endif %}
+                            </div>
+                            <div class="content">
+                                <h1>{{ post.title }}</h1>
+                                <p>{{ post.text |markdown | safe }}</p>
+                                <a href="{% url 'post_publish' pk=post.pk %}" class="btn btnD2">Publish now</a>
+                                <h5 class="content-published-date">{{ post.created_date }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="sci">
+
+                        <li><a href=""> <i class="fa fa-facebook"></i>
+
+                        <li><a href=""> <i class="fa fa-linkedin"></i>
+
+                    </ul>
+                    <p class="cpryt">
+                        <a href="">© copyright 2019 Nature | Template by Omdaprog</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+        $(document).scroll(function () {
+            $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
+        }); 
+    </script>
+    
+    <!-- animation on scrolling -->
+    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

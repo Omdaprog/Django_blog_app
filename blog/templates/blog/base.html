@@ -8,31 +8,239 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'blog/style.css' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{% static 'blog/zenburn1.css' %}">
+    <!-- fontawsome.com-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- bootstrap introduction-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- fontawsome CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+
+    <!-- annimation on scrolling -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="{% static 'DetailPage/zenburn.css' %}">
 </head>
 
-<body class="body">
-    <header class="page-header header">
-        <h1><a class="title" href="/">Django Blog</a></h1>
-        {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="icone"><i class="fas fa-plus icone" style="color: white;"></i></a>
-            <a href="{% url 'post_draft_list' %}" class="icone1"><i class="fas fa-sticky-note" style="color: white;"></i></a>
-        {% else %}
-        <a href="{% url 'login' %}" class="icone1"><i class="fas fa-sign-in-alt" style="color: white;"></i></a>
-        {% endif %}    
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+                <a href="/" class="navbar-brand" style="margin-right: 40px;">CodePython</a>
+        
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#adventure">Adventure</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blog">Blog</a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="navbar-nav ml-lg-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'post_new' %}">Create Post <span class="sr-only">(current)</span></a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'post_draft_list' %}">Draft Post</a>
+                            </li>
+        
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout_view' %}">Logout</a>
+                            </li>
+                        {% else %}
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            </li>
+        
+                        {% endif %} 
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
-    <div class="content">
-        <div class="row">
-            <div class="col-md-100">
+
+    <div class="jumbotron jumbotron-fluid height100p banner" id="home">
+        <div class="container h100">
+           <div class="contentBox h100">
+               <h1 data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">Discover the Beauty of Python</h1>
+               <p data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" >
+                Python is a programming language that lets you work more quickly and integrate your systems more effectively. It is popular and highly readable object-oriented language — both powerful and relatively easy to learn.
+                </p>
+           </div> 
+        </div>
+    </div>
+    
+    <section class="sec2" id="adventure">
+        <div class="container h100">
+            <div class="contentBox h100">
+            
+                <h1 data-aos="fade-down" data-aos-delay="0" data-aos-duration="1000">Advantage of Being a Python Developer</h1>
+                <p data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
+                    <span class="font_style"><span style="color: chocolate;">“</span>Python has been an important part of Google since the beginning, and remains so as the system grows and evolves. Today dozens of Google engineers use Python, and we’re looking for more people with skills in this language.<span style="color: chocolate;">”</span> </span>  said Peter Norvig, director of search quality at Google, Inc.
+                </p>
+            
+                <button type="button" class="btn btnD1"  data-toggle="modal" data-target=".bd-example-modal-lg" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800" >
+                    Benefits of Learning Python
+                </button>
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="false">
+                    <div class="modal-dialog modal-lg" >
+                      <div class="modal-content">
+                        <!-- <div class="modal-header"> 
+                          <button type="button" class="close" style="color: rgb(138, 2, 2);" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div> -->
+                        <div class="modal-body">
+                            <h1 style="color: black;">Benefits of Learning Python</h1>
+                            <div style="text-align: left;">
+                                <div>&nbsp;</div>
+                                It is a language that is remarkably easy to learn, and it can be used as a stepping stone into other programming
+                                languages and frameworks. If you're an absolute beginner and this is your first time working with any type of coding
+                                language, that's something you definitely want.
+                                <div>&nbsp;</div>
+                                Python is widely used, including by a number of big companies like Google, Pinterest, Instagram, Disney, Yahoo!,
+                                Nokia, IBM, and many others. The Raspberry Pi - which is a mini computer and DIY lover's dream - relies on Python as
+                                it's main programming language too. You're probably wondering why either of these things matter, and that's because
+                                once you learn Python, you'll never have a shortage of ways to utilize the skill. Not to mention, since a lot of big
+                                companies rely on the language, you can make good money as a Python developer.
+                                <div>&nbsp;</div>
+                                <div>&nbsp;</div>
+                            </div>
+                           
+                            
+                            <div style="text-align: left;">Other benefits include:</div>
+                            <div>&nbsp;</div>
+                                <div style="padding-left: 30px; text-align:left">
+                                    
+                                    <strong>1)</strong>
+                                    Python can be used to develop prototypes, and quickly because it is so easy to work with and read.
+                                    <div>&nbsp;</div>
+                                    
+                                    <strong>2)</strong>
+                                    Most automation, data mining, and big data platforms rely on Python. This is because it is the ideal language to work with for general purpose tasks.
+                                    <div>&nbsp;</div>
+                                    
+                                    <strong>3)</strong>
+                                    Python allows for a more productive coding environment than massive languages like C# and Java. Experienced coders tend to stay more organized and productive when working with Python, as well.
+                                    <div>&nbsp;</div>
+                                    
+                                    <strong>4)</strong>
+                                    Python is easy to read, even if you're not a skilled programmer. Anyone can begin working with the language, all it takes is a bit of patience and a lot of practice. Plus, this makes it an ideal candidate for use among multi-programmer and large development teams.
+                                    <div>&nbsp;</div>
+
+                                    <strong>5)</strong>
+                                    Python powers Django, a complete and open source web application framework. Frameworks - like Ruby on Rails - can be used to simplify the development process.
+                                    <div>&nbsp;</div>
+
+                                    <strong>6)</strong>
+                                    It has a massive support base thanks to the fact that it is open source and community developed. Millions of like-minded developers work with the language on a daily basis and continue to improve core functionality. The latest version of Python continues to receive enhancements and updates as time progresses. This is a great way to network with other developers.
+
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="rox">
+                <div class="offset-sm-2 col-sm-8">
+                    <div class="headerText text-center">
+                        <h2 data-aos="fade-up"  data-aos-delay="0" data-aos-duration="1000" >Our Latest Post</h2>
+                        <p data-aos="fade-up"  data-aos-delay="0" data-aos-duration="1000">We share with you a Scientific, Technical and Operational Knowledge to improve your code and gain some ideas for your project  <p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 {% block content %}
                 {% endblock %}
             </div>
         </div>
-    </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="sci">
+
+                        <li><a href=""> <i class="fa fa-facebook"></i>
+
+                        <li><a href=""> <i class="fa fa-linkedin"></i>
+
+                    </ul>
+                    <p class="cpryt">
+                        <a href="">© copyright 2019 Nature | Template by Omdaprog</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+    </script>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+        $(document).scroll(function () {
+            $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
+        }); 
+    </script>
+    
+    <!-- animation on scrolling -->
+    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    
+
+
+    
 </body>
 
 </html>

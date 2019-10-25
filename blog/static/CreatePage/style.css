@@ -6,8 +6,11 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+    overflow-x:hidden
 }
-
+html{
+    overflow-x:hidden
+}
 
 header{
     position: relative;
@@ -17,6 +20,7 @@ header{
     background: transparent !important;
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 
 
@@ -164,4 +168,67 @@ footer{
 .cpryt a:hover{
     color: #777;
     text-decoration: none;
+}
+
+
+@media (min-width: 992px){
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 992px){
+    .navbar-light .navbar-toggler {
+        background-color: #fff;
+        border-color: 0;
+    }
+
+    .navbar-light .navbar-nav .nav-link{
+        padding-left: 15px;
+        background-color: #000;
+    }
+
+}
+@media (max-width: 375px){
+    .navbar-light .navbar-brand, .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:visited {
+        font-size: 1.95rem;
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 375px) {
+    .crispyForm{
+        width: 320px;
+    }
+    .container{
+        padding-left: 10px !important; 
+    }
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+    .crispyForm{
+        width: 400px;
+    }
+    .container{
+        padding-left: 10px !important; 
+    }
+}
+
+@media (min-width: 426px) and (max-width: 550px) {
+    .crispyForm{
+        width: 460px;
+    }
+    .container{
+        padding-left: 10px !important; 
+    }
+}
+
+@media (min-width: 551px) and (max-width: 950px) {
+    .crispyForm{
+        width: 580px;
+    }
+    .container{
+        padding-left: 0px !important; 
+    }
 }

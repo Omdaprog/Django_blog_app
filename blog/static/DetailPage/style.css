@@ -222,6 +222,10 @@ pre{
     .blogpost .imgBx {
         height: 300px;
     }
+    .navbar-light .navbar-nav .nav-link{
+        padding-left: 15px;
+        background-color: #000;
+    }
 
 }
 @media (max-width: 375px){

@@ -6,6 +6,10 @@
 }
 body{
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden ;
+}
+html{
+    overflow-x: hidden;
 }
 
 header{
@@ -60,67 +64,7 @@ p{
     font-weight: 600;
 }
 
-.banner {
-    position: relative ;
-    top:0;
-    width: 100%;
-    height:100vh ;
-    background: url(img7.jpg);
-    background-size: cover;
-    margin-bottom: 0;
-}
 
-.banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(#000, transparent);
-    pointer-events: none;
-}
-
-.banner::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(360deg,#000, transparent);
-    pointer-events: none;
-}
-
-
-.height100p {
-    height: 100vh;
-}
-
-.h100{
-    height: 100%;
-}
-
-.contentBox{
-    position: relative;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 10;
-    padding-top: 40vh
-}
-
-.contentBox h1{
-    font-weight: 800;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 5rem;
-}
-.contentBox p{
-    color: #fff;
-    font-size: 1.3rem;
-}
 .col1 {
 
     flex-basis: 1;
@@ -163,31 +107,12 @@ p{
 }
 .blogpost .content h1 {
     margin: 0;
-    padding: 0 0 0 10px;
-    font-weight: 600;
+    padding: 0 0 0 0px;
+    font-weight: 400;
     font-size: 1.5rem;
     height: 56px;
 }
-.content{
-    min-height: 145px;
-}
 
-.btnD2{
-    background : #262626;
-    color: #fff;
-    border-radius: 30px;
-    padding: 10px 20px;
-    float: right;
-}
-
-
-.btnD2:hover{
-    background : #000;
-    color: #fff;
-    border-radius: 30px;
-    padding: 10px 20px;
-    float: right;
-}
 
 
 
@@ -247,22 +172,6 @@ footer{
         background-color: #fff;
         border-color: 0;
     }
-    .banner {
-        min-height: 100vh;
-        padding: 100px 0;
-    }
-    .contentBox h1,
-    .sec2 h2{
-        font-size: 2rem;
-    }
-    .sec1 {
-        padding: 50px 0;
-        background: #000;
-    }
-    .headerText h2 {
-        font-size: 2rem;
-    }
-
     .blog {
         padding: 20px 0;
     }
@@ -272,13 +181,19 @@ footer{
     .blogpost .imgBx {
         height: 300px;
     }
-    .sec2 {
-        height: auto;
-        padding: 40px 0;
+    .navbar-light .navbar-nav .nav-link{
+        padding-left: 15px;
+        background-color: #000;
+        width: 100%;
     }
-
+    
 }
-
+@media (max-width: 375px){
+    .navbar-light .navbar-brand, .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:visited {
+        font-size: 1.95rem;
+        font-weight: 600;
+    }
+}
 
 
 

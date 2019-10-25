@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+/* style for base.html */
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+.body{
+    background: #B0BEC5;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+}
+.header{
+    background:#607D8B ;
+    height: 70px;
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.header h1 a {
+    color: white;
+    text-align: left;
+    margin: 0 0 0 10%;
+    padding-top: 5px;
+    font-size: 46px;
+    display: block;
+    width: 300px;
+    text-decoration: none;
+}
+.content{
+    max-width: 50%;
+    margin: auto;
+}
+.icone{
+    font-size: 26pt;
+    float: right;
+    margin-right: 60px;
+    margin-top: -20px;
+}
+.icone1{
+    font-size: 26pt;
+    float: right;
+    margin-right: 60px;
+    margin-top: -40px;
+}
+
+
+/* style for post_deatil.html */
+.on-content{
+    background: white;
+    margin: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.content-published-date{
+    box-sizing: content-box;
+    padding: 2px;
+    border:2px solid rgb(156, 156, 182);
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    max-width: 300px;
+    margin: 15px auto 0 auto;
+}
+.icone3 i{
+    font-size: 20pt;
+}
+
+/* style for post_list.html */
+.post-title{
+    font-family: 'Raleway', sans-serif;
+    color :black;
+    max-width: 500;
+    padding: 10px 0 10px 0 ;
+    
+}
+.post-text{
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.link{
+    text-decoration: none;
+    width: auto; 
+    display: block;
+    min-width: 300px;
+    max-width: 600px;
+    display: inline-block;
+}
+/* content-published-date */
+/* on-content */
+
+
+
+/* style for post_list.html */
+.post-form-blog textarea{
+    width: 100%;
+}
+.post-form-blog {
+    font-size: 30px;
+}
+.post_edit_form{
+    margin-left: -40%;
+    font-family: 'Raleway', sans-serif;
+    margin-right: 400px
+}
+
+
+
+
+
+
+/* stackover flow */
+/* .circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(96, 125, 139);
+    border: 4px solid white;
+    position: relative;
+    float: right;
+    top: -55px;
+    right: 75px;
+  }
+  .circle::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    height: 10px;
+    margin-top: -5px;
+    top: 50%;
+    left: 5px;
+    right: 5px;
+    z-index: 9;
+  }
+  .circle::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 10px;
+    margin-left: -5px;
+    left: 50%;
+    top: 5px;
+    bottom: 5px;
+    z-index: 1;
+  } */

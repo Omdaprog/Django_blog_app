@@ -25,7 +25,7 @@ header{
 }
 p{
     font-size: 1.15rem;
-
+    margin-bottom: auto !important;
 }
 .navbar{
     transition: 0.5s;
@@ -203,9 +203,8 @@ p{
     padding: 15px;
 }
 .blogpost .content h1 {
-    margin: 0;
-    padding: 0 0 0 10px;
-    font-weight: 600;
+    margin-bottom: 20px;
+    font-weight: 500;
     font-size: 1.5rem;
     height: 56px;
 }
@@ -284,7 +283,7 @@ footer{
     }
 }
 
-@media (max-width: 992px){
+@media (max-width: 1200px){
     .navbar-light .navbar-toggler {
         background-color: #fff;
         border-color: 0;
@@ -322,6 +321,17 @@ footer{
         padding-right: 0;
         padding-left: 15px;
     }
+    .content{
+        max-height: 800px !important;
+    }
+    .content h4 {
+        visibility: hidden;
+        font-size: 0px;
+    }
+    .blogpost .content h1 {
+        font-size: 1.3rem;
+        height: auto;
+    }
 }
 
 @media (max-width: 375px){
@@ -338,8 +348,16 @@ footer{
         padding: 15px 25px;;
     }
 }
+ 
+@media (max-width: 1000px)
+{
+    .col-sm-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
 
-
-
+} 
 
 

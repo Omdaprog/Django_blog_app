@@ -127,11 +127,9 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    "/Users/ASUS IMED/Desktop/my blog app/mysite/blog/static",
-]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'root')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

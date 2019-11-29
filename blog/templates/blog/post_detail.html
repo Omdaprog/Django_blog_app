@@ -107,10 +107,10 @@
                                         {% if user.is_superuser and not commentes.approved %}
                                             <p>
                                                 <a href="{% url 'delete' pk=commentes.pk %}" class="btn btn-danger">
-                                                    <i class="fas fa-trash-alt">Delete a comment</i>
+                                                    <i class="fas fa-trash-alt">Delete</i>
                                                 </a>
                                                 <a href="{% url 'approve_comment' pk=commentes.pk %}" class="btn btn-success">
-                                                    <i class="fas fa-thumbs-up">Approve a comment</i>
+                                                    <i class="fas fa-check">Update</i>
                                                 </a>
                                             </p>
                                         {% endif %}

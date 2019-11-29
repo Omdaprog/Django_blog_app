@@ -15,7 +15,7 @@ import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+root = os.path.dirname(__file__).replace('\\','/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'crispy_forms'
+    'crispy_forms',
+    'gunicorn'
 ]
 
 MIDDLEWARE = [
@@ -83,8 +84,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'blog_database',
+        'USER': 'root',
+        'PASSWORD':'',
+        'HOST': '127.0.0.1',
+        'PORT': '',
     }
 }
 
@@ -139,3 +144,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
+# https://stackoverflow.com/questions/31073322/serving-media-files-during-deployment-in-django-1-8

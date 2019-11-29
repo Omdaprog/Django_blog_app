@@ -20,7 +20,7 @@ def post_detail(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid(): 
             comment = form.save(commit=False)                # commit=False it's mean that dont save the form in database
-            comment.author = form.save(commit=False) 
+            comment.author = request.user
             comment.post = post
             comment.save()
             return redirect('post_detail', pk=post.pk)
